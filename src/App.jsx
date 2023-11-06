@@ -71,7 +71,7 @@ const App = () => {
                               {elem2.popular ? (
                                 <p className="popular" key={elem2.index}>
                                   <span>
-                                    <i class="icon-BADGE_STAR"></i>
+                                    <i className="icon-STAR_FILL"></i>
                                   </span>
                                   Populaire
                                 </p>

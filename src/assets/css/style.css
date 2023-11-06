@@ -1,18 +1,20 @@
 @font-face {
-  font-family: 'deliveroo-icons';
-  src:  url('fonts/deliveroo-icons.eot?1xt373');
-  src:  url('fonts/deliveroo-icons.eot?1xt373#iefix') format('embedded-opentype'),
-    url('fonts/deliveroo-icons.ttf?1xt373') format('truetype'),
-    url('fonts/deliveroo-icons.woff?1xt373') format('woff'),
-    url('fonts/deliveroo-icons.svg?1xt373#deliveroo-icons') format('svg');
+  font-family: "deliveroo-icons";
+  src: url("../../fonts/deliveroo-icons.eot?1xt373");
+  src: url("../../fonts/deliveroo-icons.eot?1xt373#iefix")
+      format("embedded-opentype"),
+    url("../../fonts/deliveroo-icons.ttf?1xt373") format("truetype"),
+    url("../../fonts/deliveroo-icons.woff?1xt373") format("woff"),
+    url("../../fonts/deliveroo-icons.svg?1xt373#deliveroo-icons") format("svg");
   font-weight: normal;
   font-style: normal;
   font-display: block;
 }
 
-[class^="icon-"], [class*=" icon-"] {
+[class^="icon-"],
+[class*=" icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: 'deliveroo-icons' !important;
+  font-family: "deliveroo-icons" !important;
   speak: never;
   font-style: normal;
   font-weight: normal;
