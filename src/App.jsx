@@ -24,7 +24,7 @@ const App = () => {
   ) : (
     <>
       <header>
-        <img src="./src/assets/logo-teal.svg" alt="logo" />
+        <img src="./src/assets/img/logo-teal.svg" alt="logo" />
       </header>
 
       <section className="presentation">
@@ -62,10 +62,23 @@ const App = () => {
                             <p className="dish-description" key={elem2.index}>
                               {elem2.description}
                             </p>
-                            <p className="dish-price" key={elem2.index}>
-                              {elem2.price} €
-                            </p>
-                            <p key={elem2.index}> {elem2.popular}</p>
+
+                            <div className="price-popular">
+                              <p className="dish-price" key={elem2.index}>
+                                {elem2.price} €
+                              </p>
+
+                              {elem2.popular ? (
+                                <p className="popular" key={elem2.index}>
+                                  <span>
+                                    <i class="icon-BADGE_STAR"></i>
+                                  </span>
+                                  Populaire
+                                </p>
+                              ) : (
+                                <p></p>
+                              )}
+                            </div>
                           </div>
 
                           {elem2.picture && (
