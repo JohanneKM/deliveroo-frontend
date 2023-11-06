@@ -1,5 +1,5 @@
 .container {
-  width: 1100px;
+  width: 1200px;
   border: blue solid 1px;
   margin: 0 auto;
   background-color: #f2f5f5;
@@ -22,7 +22,7 @@
   height: 160px;
   border: red solid 1px;
   display: flex;
-  padding: 10px;
+  padding: 15px;
 
   border-radius: 10px;
   justify-content: space-between;
@@ -99,4 +99,8 @@ header img {
   width: 350px;
   height: 200px;
   border-radius: 10px;
+}
+
+.presentation p {
+  font-size: 20px;
 }

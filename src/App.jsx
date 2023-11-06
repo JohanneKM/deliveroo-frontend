@@ -42,7 +42,7 @@ const App = () => {
           return (
             <>
               <div className="container">
-                {elem.meals === [] ? (
+                {elem.meals.length === 0 ? (
                   <p></p>
                 ) : (
                   <p className="category" key={elem.name}>
