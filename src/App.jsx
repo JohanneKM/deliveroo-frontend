@@ -42,9 +42,13 @@ const App = () => {
           return (
             <>
               <div className="container">
-                <p className="category" key={elem.name}>
-                  {elem.name}
-                </p>
+                {elem.meals === [] ? (
+                  <p></p>
+                ) : (
+                  <p className="category" key={elem.name}>
+                    {elem.name}
+                  </p>
+                )}
 
                 <div className="dish-detail-all">
                   {elem.meals.map((elem2, index) => {
