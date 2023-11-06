@@ -3,6 +3,7 @@
   border: blue solid 1px;
   margin: 0 auto;
   background-color: #f2f5f5;
+  padding: 10px;
 }
 
 .menu {
@@ -17,14 +18,14 @@
 
 .dish-detail {
   background-color: white;
-  width: 500px;
+  width: 400px;
   height: 160px;
   border: red solid 1px;
   display: flex;
   padding: 10px;
-  margin-bottom: 10px;
-  display: flex;
+
   border-radius: 10px;
+  justify-content: space-between;
 }
 
 .category {
@@ -43,6 +44,10 @@
   font-size: 15px;
   color: #808484;
   margin-bottom: 10px;
+  width: 200px;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  height: 30px;
 }
 
 .dish-price {
@@ -73,7 +78,7 @@ h1 {
 
 header {
   background-color: white;
-  border-bottom: lightgray;
+  border-bottom: grey solid 1px;
   width: 1100px;
   margin: 0 auto;
 }
@@ -94,5 +99,4 @@ header img {
   width: 350px;
   height: 200px;
   border-radius: 10px;
-  padding: 5px;
 }

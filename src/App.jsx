@@ -64,7 +64,9 @@ const App = () => {
                             <p key={elem2.index}> {elem2.popular}</p>
                           </div>
 
-                          <img src={elem2.picture} alt="dish-image" />
+                          {elem2.picture && (
+                            <img src={elem2.picture} alt="dish-image" />
+                          )}
                         </div>
                       </>
                     );
