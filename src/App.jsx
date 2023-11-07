@@ -10,8 +10,13 @@ const App = () => {
   const handleClickMinus = (index) => {
     const mealsCopy = [...meals];
 
-    mealsCopy[index].quantity = meals[index].quantity - 1;
-    setMeals(mealsCopy);
+    if (mealsCopy[index].quantity === 1) {
+      mealsCopy.splice(index, 1);
+      setMeals(mealsCopy);
+    } else {
+      mealsCopy[index].quantity = meals[index].quantity - 1;
+      setMeals(mealsCopy);
+    }
   };
 
   const handleClickPlus = (index) => {
