@@ -5,6 +5,7 @@ import axios from "axios";
 const App = () => {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
+  const [meals, setMeals] = useState([]); // [ {meal : brunch vegan, quantity: 2 , price : 10€}, ...]
 
   useEffect(() => {
     console.log("Je passe dans mon useEffect");
@@ -39,62 +40,98 @@ const App = () => {
         </div>
       </section>
 
-      <section className="menu">
-        {data.categories.map((elem) => {
-          return (
-            <section key={elem.name}>
-              <div key={elem.name} className="container">
-                {elem.meals.length === 0 ? (
-                  <p></p>
-                ) : (
-                  <p className="category" key={elem.name}>
-                    {elem.name}
-                  </p>
-                )}
+      <section className="menu-and-basket">
+        <section className="menu">
+          {data.categories.map((elem) => {
+            return (
+              <section key={elem.name}>
+                <div key={elem.name} className="container">
+                  {elem.meals.length === 0 ? (
+                    <p></p>
+                  ) : (
+                    <p className="category" key={elem.name}>
+                      {elem.name}
+                    </p>
+                  )}
 
-                <div className="dish-detail-all">
-                  {elem.meals.map((elem2, index) => {
-                    return (
-                      <section key={elem2.title}>
-                        <div key={elem2.title} className="dish-detail">
-                          <div className="text">
-                            <p className="dish-title" key={elem2.title}>
-                              {elem2.title}
-                            </p>
-                            <p className="dish-description" key={elem2.index}>
-                              {elem2.description}
-                            </p>
-
-                            <div className="price-popular">
-                              <p className="dish-price" key={elem2.index}>
-                                {elem2.price} €
+                  <div className="dish-detail-all">
+                    {elem.meals.map((elem2, index) => {
+                      return (
+                        <section key={elem2.title}>
+                          <div
+                            onClick={() => {
+                              const mealsCopy = [...meals];
+                              mealsCopy.push({
+                                meal: elem2.title,
+                                quantity: 1,
+                                price: elem2.price,
+                              });
+                              setMeals(mealsCopy);
+                            }}
+                            key={elem2.title}
+                            className="dish-detail"
+                          >
+                            <div className="text">
+                              <p className="dish-title" key={elem2.title}>
+                                {elem2.title}
+                              </p>
+                              <p className="dish-description" key={elem2.index}>
+                                {elem2.description}
                               </p>
 
-                              {elem2.popular ? (
-                                <p className="popular" key={elem2.index}>
-                                  <span>
-                                    <i className="icon-STAR_FILL"></i>
-                                  </span>
-                                  Populaire
+                              <div className="price-popular">
+                                <p className="dish-price" key={elem2.index}>
+                                  {elem2.price} €
                                 </p>
-                              ) : (
-                                <p></p>
-                              )}
-                            </div>
-                          </div>
 
-                          {elem2.picture && (
-                            <img src={elem2.picture} alt="dish-image" />
-                          )}
-                        </div>
-                      </section>
-                    );
-                  })}
+                                {elem2.popular ? (
+                                  <p className="popular" key={elem2.index}>
+                                    <span>
+                                      <i className="icon-STAR_FILL"></i>
+                                    </span>
+                                    Populaire
+                                  </p>
+                                ) : (
+                                  <p></p>
+                                )}
+                              </div>
+                            </div>
+
+                            {elem2.picture && (
+                              <img src={elem2.picture} alt="dish-image" />
+                            )}
+                          </div>
+                        </section>
+                      );
+                    })}
+                  </div>
                 </div>
+              </section>
+            );
+          })}
+        </section>
+
+        <section className="basket">
+          <input type="submit" value="Valider mon panier" />
+          {meals.map((elem, index) => {
+            return (
+              <div className="basket-content" key={elem.index}>
+                <p> {elem.meal}</p>
+                <p> {elem.quantity}</p>
+                <p> {elem.price} €</p>
               </div>
-            </section>
-          );
-        })}
+            );
+          })}
+
+          <div className="subtotal-delivery">
+            <p>Sous total</p>
+            <p>Frais de livraison</p>
+          </div>
+
+          <div className="total">
+            <p>Total</p>
+          </div>
+        </section>
       </section>
     </>
   );

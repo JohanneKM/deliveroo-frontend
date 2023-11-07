@@ -23,11 +23,11 @@
   background-color: white;
   width: 400px;
   height: 160px;
-
   display: flex;
   padding: 15px;
   border-radius: 10px;
   justify-content: space-between;
+  border: solid red 1px;
 }
 
 .category {
@@ -59,7 +59,6 @@
 
 .dish-detail-all {
   display: flex;
-
   flex-wrap: wrap;
   gap: 10px;
 }
@@ -80,7 +79,7 @@ h1 {
 
 header {
   background-color: white;
-  border-bottom: grey solid 1px;
+  border-bottom: lightgray solid 1px;
   margin: 0 auto;
 }
 
@@ -123,4 +122,29 @@ header img {
   font-weight: bold;
   display: flex;
   gap: 10px;
+}
+
+.basket {
+  border: red solid 1px;
+  width: 350px;
+  height: 500px;
+  margin-top: 40px;
+}
+
+.menu-and-basket {
+  display: flex;
+}
+
+.basket-content {
+  display: flex;
+  gap: 10px;
+  padding: 5px;
+}
+
+.subtotal-delivery {
+  border-top: lightgray solid 1px;
+  border-bottom: lightgray solid 1px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 5px;
 }
