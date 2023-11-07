@@ -7,6 +7,20 @@ const App = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [meals, setMeals] = useState([]); // [ {meal : brunch vegan, quantity: 2 , price : 10€}, ...]
 
+  const handleClickMinus = (index) => {
+    const mealsCopy = [...meals];
+
+    mealsCopy[index].quantity = meals[index].quantity - 1;
+    setMeals(mealsCopy);
+  };
+
+  const handleClickPlus = (index) => {
+    const mealsCopy = [...meals];
+
+    mealsCopy[index].quantity = meals[index].quantity + 1;
+    setMeals(mealsCopy);
+  };
+
   useEffect(() => {
     console.log("Je passe dans mon useEffect");
     const fetchData = async () => {
@@ -60,17 +74,16 @@ const App = () => {
                         <section key={elem2.title}>
                           <div
                             onClick={() => {
-                              const tabMeals = meals.map((elem) => {
-                                <p> {elem.meal}</p>;
-                              });
+                              const mealToFind = meals.find(
+                                (e) => e.meal === elem2.title
+                              );
 
                               // je vérifie si le plat est déjà dans mon tableau tabMeals
 
-                              console.log(tabMeals.includes(elem2.meal));
-
-                              if (tabMeals.includes(elem2.meal)) {
+                              if (mealToFind) {
+                                const indexOfMeal = meals.indexOf(mealToFind); // je recherche son idex dans le panier
                                 const mealsCopy = [...meals];
-                                elem.quantity = elem.quantity + 1;
+                                meals[indexOfMeal].quantity += 1;
                                 setMeals(mealsCopy);
                               } else {
                                 const mealsCopy = [...meals];
@@ -130,10 +143,16 @@ const App = () => {
           {meals.map((elem, index) => {
             return (
               <div className="basket-content" key={elem.index}>
-                <button>-</button>
+                <button onClick={() => handleClickMinus(index)}>-</button>
                 <p> {elem.quantity}</p>
 
-                <button>+</button>
+                <button
+                  onClick={() => {
+                    handleClickPlus(index);
+                  }}
+                >
+                  +
+                </button>
                 <p> {elem.meal}</p>
 
                 <p> {elem.price} €</p>
