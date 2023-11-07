@@ -2,7 +2,7 @@
 
 .container {
   width: 1200px;
-  border: blue solid 1px;
+
   margin: 0 auto;
   background-color: #f2f5f5;
   padding: 10px;
@@ -22,7 +22,7 @@
   background-color: white;
   width: 400px;
   height: 160px;
-  border: red solid 1px;
+
   display: flex;
   padding: 15px;
   border-radius: 10px;
@@ -58,7 +58,7 @@
 
 .dish-detail-all {
   display: flex;
-  border: green solid 1px;
+
   flex-wrap: wrap;
   gap: 10px;
 }
@@ -114,4 +114,6 @@ header img {
 .popular {
   color: #ff8001;
   font-weight: bold;
+  display: flex;
+  gap: 10px;
 }

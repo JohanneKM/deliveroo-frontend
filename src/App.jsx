@@ -40,8 +40,8 @@ const App = () => {
       <section className="menu">
         {data.categories.map((elem) => {
           return (
-            <>
-              <div className="container">
+            <section key={elem.name}>
+              <div key={elem.name} className="container">
                 {elem.meals.length === 0 ? (
                   <p></p>
                 ) : (
@@ -53,8 +53,8 @@ const App = () => {
                 <div className="dish-detail-all">
                   {elem.meals.map((elem2, index) => {
                     return (
-                      <>
-                        <div className="dish-detail">
+                      <section key={elem2.title}>
+                        <div key={elem2.title} className="dish-detail">
                           <div className="text">
                             <p className="dish-title" key={elem2.title}>
                               {elem2.title}
@@ -85,12 +85,12 @@ const App = () => {
                             <img src={elem2.picture} alt="dish-image" />
                           )}
                         </div>
-                      </>
+                      </section>
                     );
                   })}
                 </div>
               </div>
-            </>
+            </section>
           );
         })}
       </section>
