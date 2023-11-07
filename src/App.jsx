@@ -60,23 +60,27 @@ const App = () => {
                         <section key={elem2.title}>
                           <div
                             onClick={() => {
-
-
                               const tabMeals = meals.map((elem) => {
-                                <p> {elem.meal}</p>
+                                <p> {elem.meal}</p>;
                               });
 
                               // je vérifie si le plat est déjà dans mon tableau tabMeals
 
-                              { tabMeals.includes(elem2.title) ? elem2.quantity = elem2.quantity + 1 : 
+                              console.log(tabMeals.includes(elem2.meal));
+
+                              if (tabMeals.includes(elem2.meal)) {
+                                const mealsCopy = [...meals];
+                                elem.quantity = elem.quantity + 1;
+                                setMeals(mealsCopy);
+                              } else {
                                 const mealsCopy = [...meals];
                                 mealsCopy.push({
                                   meal: elem2.title,
                                   quantity: 1,
                                   price: elem2.price,
                                 });
-                                setMeals(mealsCopy)  }
-                              
+                                setMeals(mealsCopy);
+                              }
                             }}
                             key={elem2.title}
                             className="dish-detail"
