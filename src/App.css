@@ -16,6 +16,7 @@
   height: 130px;
   width: 130px;
   border-radius: 10px;
+  object-fit: cover;
 }
 
 .dish-detail {
@@ -80,8 +81,13 @@ h1 {
 header {
   background-color: white;
   border-bottom: grey solid 1px;
+  margin: 0 auto;
+}
+
+.img-header {
   width: 1200px;
   margin: 0 auto;
+  padding-bottom: 10px;
 }
 
 .presentation .container {
@@ -100,6 +106,7 @@ header img {
   width: 350px;
   height: 200px;
   border-radius: 10px;
+  object-fit: cover;
 }
 
 .presentation p {

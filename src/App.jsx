@@ -24,7 +24,9 @@ const App = () => {
   ) : (
     <>
       <header>
-        <img src="./src/assets/img/logo-teal.svg" alt="logo" />
+        <div className="img-header">
+          <img src="./src/assets/img/logo-teal.svg" alt="logo" />
+        </div>
       </header>
 
       <section className="presentation">
