@@ -6,14 +6,18 @@ const App = () => {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const [meals, setMeals] = useState([]); // [ {meal : brunch vegan, quantity: 2 , price : 10€}, ...]
+  const [subtotal, setSubtotal] = useState(0);
 
   const handleClickMinus = (index) => {
     const mealsCopy = [...meals];
 
     if (mealsCopy[index].quantity === 1) {
+      setSubtotal(subtotal - Number(mealsCopy[index].price));
       mealsCopy.splice(index, 1);
+
       setMeals(mealsCopy);
     } else {
+      setSubtotal(subtotal - Number(mealsCopy[index].price));
       mealsCopy[index].quantity = meals[index].quantity - 1;
       setMeals(mealsCopy);
     }
@@ -21,6 +25,7 @@ const App = () => {
 
   const handleClickPlus = (index) => {
     const mealsCopy = [...meals];
+    setSubtotal(subtotal + Number(mealsCopy[index].price));
 
     mealsCopy[index].quantity = meals[index].quantity + 1;
     setMeals(mealsCopy);
@@ -89,6 +94,7 @@ const App = () => {
                                 const indexOfMeal = meals.indexOf(mealToFind); // je recherche son idex dans le panier
                                 const mealsCopy = [...meals];
                                 meals[indexOfMeal].quantity += 1;
+
                                 setMeals(mealsCopy);
                               } else {
                                 const mealsCopy = [...meals];
@@ -98,6 +104,7 @@ const App = () => {
                                   price: elem2.price,
                                 });
                                 setMeals(mealsCopy);
+                                setSubtotal(subtotal + Number(elem2.price));
                               }
                             }}
                             key={elem2.title}
@@ -160,14 +167,20 @@ const App = () => {
                 </button>
                 <p> {elem.meal}</p>
 
-                <p> {elem.price} €</p>
+                <p> {elem.price * elem.quantity} €</p>
               </div>
             );
           })}
 
           <div className="subtotal-delivery">
-            <p>Sous total</p>
-            <p>Frais de livraison</p>
+            <div className="subtotal">
+              <p>Sous total</p>
+              <p> {subtotal} €</p>
+            </div>
+            <div className="delivery-fee">
+              <p>Frais de livraison</p>
+              <p> 2.50 €</p>
+            </div>
           </div>
 
           <div className="total">

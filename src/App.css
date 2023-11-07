@@ -148,3 +148,13 @@ header img {
   margin-bottom: 10px;
   padding: 5px;
 }
+
+.subtotal {
+  display: flex;
+  gap: 100px;
+}
+
+.delivery-fee {
+  display: flex;
+  gap: 100px;
+}
